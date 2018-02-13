@@ -5,6 +5,7 @@ import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldMo
   MatSlideToggleModule, MatToolbarModule, MatListModule, MatGridListModule,
   MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { hammerjs } from 'hammerjs';
 import { NgModule } from '@angular/core';
 
 
