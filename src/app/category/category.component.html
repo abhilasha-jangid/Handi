@@ -11,7 +11,7 @@ fxLayoutGap="10px">
 
 <div fxFlex>
 <mat-grid-list cols="2" rowHeight="200px">
- <mat-grid-tile *ngFor="let product of products">
+ <mat-grid-tile *ngFor="let product of products" (click)="onSelect(product)">
    <img height="200px" src={{product.image}} alt={{product.name}}>
    <mat-grid-tile-footer>
      <h1 md-line>{{product.name | uppercase}}</h1>
@@ -19,7 +19,7 @@ fxLayoutGap="10px">
  </mat-grid-tile>
 </mat-grid-list>
 </div>
-
+<app-product-details [product]="selectProduct"></app-product-details>
 
 <!--<div fxFlex *ngIf="selectProduct">
   <mat-card>

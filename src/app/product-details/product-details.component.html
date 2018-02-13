@@ -1,9 +1,12 @@
 <div class="container"
 fxLayout="row"
-fxLayoutGap="10px">
-
-    <div fxFlex>
-    <mat-card>
+fxLayout.sm="column"
+fxLayout.xs="column"
+fxLayoutAlign.gt-md="space-around center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0">
+    <div fxFlex="40">
+    <mat-card *ngIf="product">
       <mat-card-header>
       <mat-card-title>
         <h3>{{product.name}}</h3>
@@ -18,20 +21,18 @@ fxLayoutGap="10px">
         <button mat-button>SHARE</button>
       </mat-card-actions>
     </mat-card>
-  </div>
+   </div>
   
-  <div class="element"
-  fxLayout="column"
-  fxLayoutGap="100px">
-  
-  <h1>Comments</h1>
-  <mat-list fxFlex>
-  <mat-list-item *ngFor="let comment of comments">
-  <h2 mat-line> {{comment.comment}} </h2>
-  <h4 mat-line>{{comment.rating}}</h4>
-  <h4 mat-line>{{comment.customer_name}} {{comment.date}}</h4>
+
+  <div fxFlex="40" *ngIf="product">
+  <h4>Comments</h4>
+  <mat-list-item *ngFor="let comment of product.comments">
+  <h3 mat-line> {{comment.comment}} </h3>
+  <p mat-line>{{comment.rating}} Stars</p>
+  <p mat-line>
+    <span>--{{comment.customer_name}} {{comment.date | date}}
+    </span>
+    </p>
   </mat-list-item>
-  </mat-list>
-  
   </div>
 </div>
