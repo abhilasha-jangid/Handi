@@ -11,12 +11,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryComponent
+    CategoryComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldModule,

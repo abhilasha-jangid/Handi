@@ -9,7 +9,7 @@ const PRODUCT: Product[] =
                                 name: 'Bhudha',
                                 image: '/assets/handi_image/bhudha.jpg',
                                 price: '11500',
-                                description: 'brss metalic murti'
+                                description: 'brss metalic murti of bhudha . it really a sign of peace. it make the people to love each other.recall them about the truth of life.it make a real knowlege to the existance of humen.'
 
                               },
                               {
@@ -40,7 +40,7 @@ const PRODUCT: Product[] =
 export class CategoryComponent implements OnInit {
 
   products = PRODUCT;
-  selectProduct =  PRODUCT[2];
+  selectProduct =  PRODUCT[0];
 
   constructor() { }
 

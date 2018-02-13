@@ -1,0 +1,37 @@
+<div class="container"
+fxLayout="row"
+fxLayoutGap="10px">
+
+    <div fxFlex>
+    <mat-card>
+      <mat-card-header>
+      <mat-card-title>
+        <h3>{{product.name}}</h3>
+      </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src={{product.image}} alt={{product.name}}>
+      <mat-card-content>
+        <p>{{product.description}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
+  <div class="element"
+  fxLayout="column"
+  fxLayoutGap="100px">
+  
+  <h1>Comments</h1>
+  <mat-list fxFlex>
+  <mat-list-item *ngFor="let comment of comments">
+  <h2 mat-line> {{comment.comment}} </h2>
+  <h4 mat-line>{{comment.rating}}</h4>
+  <h4 mat-line>{{comment.customer_name}} {{comment.date}}</h4>
+  </mat-list-item>
+  </mat-list>
+  
+  </div>
+</div>
