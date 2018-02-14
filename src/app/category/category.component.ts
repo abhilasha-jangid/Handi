@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Product } from '../shared/product';
-import { PRODUCT } from '../shared/products';
+import { ProductService } from '../services/product.service';
 
 
 
@@ -12,12 +12,13 @@ import { PRODUCT } from '../shared/products';
 })
 export class CategoryComponent implements OnInit {
 
-  products = PRODUCT;
+  products : Product[];
   selectProduct : Product;
 
-  constructor() { }
+  constructor(private productService:ProductService) { }
 
   ngOnInit() {
+    this.products = this.productService.getProducts();
   }
 
   onSelect( product:Product)

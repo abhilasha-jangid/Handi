@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { hammerjs } from 'hammerjs';
 import { NgModule } from '@angular/core';
 
+import { ProductService } from './services/product.service';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
@@ -26,7 +27,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     MatSlideToggleModule, MatToolbarModule, MatListModule, MatGridListModule,
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule,FlexLayoutModule,BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
