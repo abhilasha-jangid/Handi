@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 body
 {
@@ -14,17 +14,37 @@ body
     display: flex;
 }
 
-.element
-{
-    margin: 200px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
+$lt-gray: rgb(221, 221, 221);
+$background-dark: rgb(168, 45, 141);
+$background-light: rgb(205, 117, 193);
+$background-pale: rgb(233, 196, 225);
+$primary-color-dark:   rgb(168, 45, 127);
+$primary-color:        rgb(183, 58, 173);
+$primary-color-light:  rgb(233, 196, 228);
+$primary-color-text:   rgb(255, 255, 255);
+$accent-color:         rgb(255, 7, 234);
+$primary-text-color:   #212121;
+$secondary-text-color: #757575;
+$divider-color:        rgb(189, 189, 189);
+
+@mixin zero-margin($pad-up-down, $pad-left-right) {
+    margin: 0px auto;
+    padding: $pad-up-down $pad-left-right;
 }
-.ele
+.background-primary {
+    background-color: $background-dark!important;
+  }
+.background-accent {
+    background-color: $accent-color!important;
+  }
+.text-floral-white {
+    color: rgb(255, 240, 250)!important;
+}
+.footer_primary
 {
-    margin: 20px;
-    padding-left: 80px;
-    padding-right: 80px;
-    display: flex;
+    background-color: $background-pale!important;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
 }
