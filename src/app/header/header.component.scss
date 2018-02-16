@@ -3,6 +3,8 @@ $background-dark: rgb(168, 45, 137);
 $background-light: rgb(205, 117, 179);
 $background-pale: rgb(233, 196, 224);
 
+$background-moredark: rgb(170, 14, 136);
+
 @mixin zero-margin($pad-up-down, $pad-left-right) {
     margin: 0px auto;
     padding: $pad-up-down $pad-left-right;
@@ -16,4 +18,8 @@ $background-pale: rgb(233, 196, 224);
 }
 .primary {
     background: $background-dark;
+  }
+
+  .active {
+      background: $background-moredark;
   }

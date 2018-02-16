@@ -1,6 +1,4 @@
-import { Comment } from './comment';
-
-export class Product 
+export class Promotion
 {
     id: number;
     name: string;
@@ -8,5 +6,4 @@ export class Product
     price: string;
     featured: boolean;
     description: string;
-    comments: Comment[];
 }

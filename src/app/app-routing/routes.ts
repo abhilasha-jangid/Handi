@@ -14,5 +14,6 @@ export const routes: Routes=[
     {
         path: 'category', component: CategoryComponent
     },
+    { path: 'contectus', component: ContectComponent},
     { path: '', redirectTo: '/home', pathMatch:'full'}
 ];

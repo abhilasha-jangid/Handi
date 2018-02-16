@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../shared/product';
+import { ProductService } from '../services/product.service';
+import { Promotion } from '../shared/promotion';
+import { PromotionService } from '../services/promotion.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  product: Product;
+  promotion : Promotion;
+
+  constructor( private productService:ProductService,
+               private promotionService:PromotionService) { }
 
   ngOnInit() {
+    this.product = this.productService.getProductFeature();
+    this.promotion = this.promotionService.getPromotionFeature();
   }
 
 }

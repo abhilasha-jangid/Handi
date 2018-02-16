@@ -9,6 +9,7 @@ import { hammerjs } from 'hammerjs';
 import { NgModule } from '@angular/core';
 
 import { ProductService } from './services/product.service';
+import { PromotionService } from './services/promotion.service';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
@@ -40,7 +41,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule,FlexLayoutModule,BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [ProductService],
+  providers: [ProductService,PromotionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

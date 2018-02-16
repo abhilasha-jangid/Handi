@@ -37,6 +37,14 @@ $divider-color:        rgb(189, 189, 189);
 .background-accent {
     background-color: $accent-color!important;
   }
+  .butti
+  {
+      background-color: $background-pale!important;
+      display: flex;
+  }
+  .background-header{
+      background-color: $background-light!important;
+  }
 
 
 .flex-spacer {

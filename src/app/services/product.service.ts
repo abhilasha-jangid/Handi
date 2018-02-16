@@ -9,5 +9,10 @@ export class ProductService {
   getProducts() : Product[]{
     return PRODUCT;
   }
-
+  getProductId(id:number): Product{
+    return PRODUCT.filter((product) => (product.id === id))[0];
+  }
+  getProductFeature(): Product{
+    return PRODUCT.filter((product) =>(product.featured))[0];
+  }
 }
