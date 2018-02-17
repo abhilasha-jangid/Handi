@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { ProductService } from './services/product.service';
 import { PromotionService } from './services/promotion.service';
 import { CorporateService } from './services/corporate.service';
+import { ArtistService } from './services/artist.service';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
@@ -42,7 +43,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule,FlexLayoutModule,BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [ProductService,PromotionService,CorporateService],
+  providers: [ProductService,PromotionService,CorporateService,ArtistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,7 +19,7 @@ fxLayoutGap="10px">
 </mat-card-content>
 </mat-card>
 
-<mat-card *ngIf="promotion" class="background-header" fxFlex>
+<mat-card *ngIf="promotion" class="background-header" fxFlex >
 <mat-card-header>
 <div mat-card-avatar></div>
 <mat-card-title>
@@ -32,5 +32,18 @@ fxLayoutGap="10px">
 </p>
 </mat-card-content>
 </mat-card>
+<mat-card *ngIf="artist" class="background-header" fxFlex >
+        <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>
+         <h3>{{artist.name | uppercase}}</h3>
+        </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src={{artist.image}} alt={{artist.name}}>
+        <mat-card-content>
+        <p>{{artist.description}}
+        </p>
+        </mat-card-content>
+        </mat-card>
 
 </div>
