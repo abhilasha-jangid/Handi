@@ -1,6 +1,9 @@
 import { Component, OnInit,Input } from '@angular/core';
 
 import { Product } from '../shared/product';
+import { ProductService } from '../services/product.service';
+import { Params,ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -10,13 +13,20 @@ import { Product } from '../shared/product';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  @Input()
   product: Product;
 
 
-  constructor() { }
+  constructor(private productService: ProductService,
+    private router: ActivatedRoute,
+    private location: Location ) { }
 
   ngOnInit() {
+    let id = +this.router.snapshot.params['id'];
+    this.product = this.productService.getProductId(id);
+  }
+
+  goBack():void {
+    this.location.back();
   }
 
 }
