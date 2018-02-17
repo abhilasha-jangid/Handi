@@ -11,6 +11,7 @@ export const routes: Routes=[
     {
         path: 'home' , component: HomeComponent
     },
+    {   path:'aboutus',component: AboutComponent },
     {
         path: 'category', component: CategoryComponent
     },

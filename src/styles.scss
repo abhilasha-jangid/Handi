@@ -23,7 +23,7 @@ $primary-color:        rgb(183, 58, 173);
 $primary-color-light:  rgb(233, 196, 228);
 $primary-color-text:   rgb(172, 37, 120);
 $accent-color:         rgb(255, 7, 234);
-$primary-text-color:   #212121;
+$primary-text-color:   #000000;
 $secondary-text-color: #757575;
 $divider-color:        rgb(189, 189, 189);
 
@@ -45,6 +45,10 @@ $divider-color:        rgb(189, 189, 189);
   .background-header{
       background-color: $background-light!important;
   }
+  .jumbotron {
+    background: $background-light ;
+}
+
 
 
 .flex-spacer {

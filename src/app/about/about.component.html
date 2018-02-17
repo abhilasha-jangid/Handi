@@ -1,3 +1,65 @@
-<p>
-  about works!
-</p>
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px">
+ 
+<div fxFlex>
+    <div>
+       <h3>About Us</h3>
+       <hr>
+    </div>
+</div>
+
+
+<div fxFlex>
+    <h1>Our History</h1> 
+    <div fxLayout="column">
+        <div fxFlex>
+             <p>The word handicrafts are made by two words hand + craft. Hand mean by
+                made of hand or using simple tools in making of any item, ad craft mean
+                a unique expression that represent a culture, tradition and the heritage of a
+                country. That mean handicraft is a unique expression by using art on any
+                item. Handicraft is also known as artisanry, which mean a type of work where
+                useful and decorative devices are made completely by hand or using
+                simple tools.</p>
+              <p>The term handicraft is most frequently used for the 'art and craft". Art and
+                  craft work is not only a matter of happy but also creating useful as well as
+                  creative work for people, using natural materials and traditional
+                  techniques.
+                  The history of handicrafts is almost 5000 years old. </p>
+          </div>
+          <mat-card fxLayoutAlign.gt-md="space-around center"
+                     fxLayout="column" class="jumbotron">
+              <mat-card-header>
+              <mat-card-title >
+                <h3>Art is not a handicraft,it is transmission of feeling the artist has experiened.</h3>
+              </mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>-- Leo Tolstoy</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+
+    <div fxFlex>
+    <div>
+       <h2>Corporate Leadership</h2>
+    </div>
+    </div>
+    
+    <div class="container"
+    fxLayout="column"
+    fxLayoutGap="100px">
+      <mat-list fxFlex>
+      <mat-list-item *ngFor="let corporate of corporates">
+        <h5 mat-line class="jumbotron">{{corporate.name}}</h5>
+        <h6 mat-line class="jumbotron">{{corporate.post}}</h6>
+        <img mat-list-avatar src="{{corporate.image}}" alt="{{corporate.name}}">
+        <p mat-line class="jumbotron">
+          <span> {{corporate.potential}} </span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div>
