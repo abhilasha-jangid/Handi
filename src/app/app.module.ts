@@ -23,6 +23,9 @@ import { HomeComponent } from './home/home.component';
 import { ContectComponent } from './contect/contect.component';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginComponent } from './login/login.component';
+
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,16 +37,18 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContectComponent
+    ContectComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldModule,
     MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule,
     MatSlideToggleModule, MatToolbarModule, MatListModule, MatGridListModule,
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule,FlexLayoutModule,BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule
   ],
   providers: [ProductService,PromotionService,CorporateService,ArtistService],
+  entryComponents:[LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
