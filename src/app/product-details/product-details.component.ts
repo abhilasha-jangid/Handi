@@ -22,7 +22,8 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     let id = +this.router.snapshot.params['id'];
-    this.product = this.productService.getProductId(id);
+    this.productService.getProductId(id)
+    .then(product=>{this.product = product});
   }
 
   goBack():void {

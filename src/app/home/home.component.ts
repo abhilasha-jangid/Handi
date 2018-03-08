@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
               private artistService:ArtistService) { }
 
   ngOnInit() {
-    this.product = this.productService.getProductFeature();
+   this.productService.getProductFeature()
+   .then(product=>{this.product=product});
     this.promotion = this.promotionService.getPromotionFeature();
     this.artist = this.artistService.getArtistFeature();
   }

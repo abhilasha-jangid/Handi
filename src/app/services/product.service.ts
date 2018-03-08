@@ -6,13 +6,13 @@ import { PRODUCT } from '../shared/products';
 export class ProductService {
 
   constructor() { }
-  getProducts() : Product[]{
-    return PRODUCT;
+  getProducts() : Promise<Product[]>{
+    return Promise.resolve(PRODUCT);
   }
-  getProductId(id:number): Product{
-    return PRODUCT.filter((product) => (product.id === id))[0];
+  getProductId(id:number): Promise<Product>{
+    return Promise.resolve(PRODUCT.filter((product) => (product.id === id))[0]);
   }
-  getProductFeature(): Product{
-    return PRODUCT.filter((product) =>(product.featured))[0];
+  getProductFeature(): Promise<Product>{
+    return Promise.resolve(PRODUCT.filter((product) =>(product.featured))[0]);
   }
 }

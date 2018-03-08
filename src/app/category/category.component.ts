@@ -18,7 +18,8 @@ export class CategoryComponent implements OnInit {
   constructor(private productService:ProductService) { }
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    this.productService.getProducts()
+    .then(products => {this.products = products});
   }
 
   onSelect( product:Product)
