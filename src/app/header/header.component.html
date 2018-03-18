@@ -1,48 +1,56 @@
-<mat-toolbar class="primary">
-  <span><img src="/assets/handi_image/logo4.jpg" height=30 width=41></span>
-  <div  fxHide.lt-md="true">
-  <a mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Home</a>
-  <a mat-button routerLink="/aboutus" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> About</a>
-  <a mat-button routerLink="/category" routerLinkActive="active"><span class="fa fa-list fa-lg"></span> Category</a>
-  <a mat-button routerLink="/contectus" routerLinkActive="active"><span class="fa fa-address-card fa-lg"></span> Contact</a>
-  <span class="flex-spacer"></span>
-  <a mat-button (click)="openLoginForm()" class="flex-spacer"><span class="fa fa-sign-in fa-lg"></span> Login</a>
-  </div>
-  <div fxShow="false" fxHide.lt-md="false">
-      <a  mat-button (click)="sidenav.toggle()"> ☰</a> 
+<div fxShow="true" fxHide.lt-md="true" >
+  <mat-toolbar class="primary">
+    <span><img src="/assets/handi_image/logo4.jpg" height=30 width=41></span>
+    <a mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Home</a>
+    <a mat-button routerLink="/aboutus" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> About</a>
+    <a mat-button routerLink="/category" routerLinkActive="active"><span class="fa fa-list fa-lg"></span> Category</a>
+    <a mat-button routerLink="/contectus" routerLinkActive="active"><span class="fa fa-address-card fa-lg"></span> Contact</a>
+    <span class="flex-spacer"></span>
+    <a mat-button (click)="openLoginForm()" ><span class="fa fa-sign-in fa-lg"></span> Login</a>
+  </mat-toolbar>
 
-  </div>
-</mat-toolbar>
-<div fxShow="false" fxHide.lt-md="false"  style="height: 50vh;">
+</div>
+
+
+<div fxShow="true" fxHide.gt-sm="true" >
+  <mat-toolbar class="primary">
+    <span><img src="/assets/handi_image/logo4.jpg" height=30 width=41></span>
+        <a  mat-icon-button (click)="sidenav.toggle()"> <mat-icon>menu</mat-icon></a> 
+  </mat-toolbar>
+</div>
+
+<div  style="height: 46vh;">
     <mat-sidenav-container fxFlexFill class="primary">
-        <mat-sidenav #sidenav fxLayout="column"  mode="side">
+        <mat-sidenav #sidenav fxLayout="column"  >
           <a  mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> Home</a>
           <a  mat-button routerLink="/aboutus" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> About</a>
           <a  mat-button routerLink="/category" routerLinkActive="active"><span class="fa fa-list fa-lg"></span> Category</a>
           <a  mat-button routerLink="/contectus" routerLinkActive="active"><span class="fa fa-address-card fa-lg"></span> Contact</a>
           <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> Login</a>
         </mat-sidenav>
+
+        <mat-sidenav-content fxFlexFill>  
+              <div class="container jumbotron"
+              fxLayout="row"
+              fxLayout.sm="column" 
+              fxLayout.xs="column" 
+              fxLayoutAlign.xs="start center"
+              fxLayoutAlign.sm="start center" 
+              fxLayoutAlign.gt-sm="center center" 
+              fxLayoutGap="10px">
+          
+            <div fxFlex fxFlex.gt-sm="50%">
+              <h1>Shop Handicraft</h1>
+              <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations
+                will tickle your culinary senses!</p>
+            </div>
+            <div fxFlex fxFlex.gt-sm="20%">
+              <img src="/assets/handi_image/logo4.jpg" alt="Logo">
+            </div>
+            <div fxFlex></div>
+          </div>
+        </mat-sidenav-content>
+
         </mat-sidenav-container>
-        </div>
+      </div>
                    
-        
-        
-        <div class="container jumbotron"
-            fxLayout="row"
-            fxLayout.sm="column" 
-            fxLayout.xs="column" 
-            fxLayoutAlign.xs="start center"
-            fxLayoutAlign.sm="start center" 
-            fxLayoutAlign.gt-sm="center center" 
-            fxLayoutGap="10px">
-        
-          <div fxFlex fxFlex.gt-sm="50%">
-            <h1>Shop Handicraft</h1>
-            <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations
-              will tickle your culinary senses!</p>
-          </div>
-          <div fxFlex fxFlex.gt-sm="20%">
-            <img src="/assets/handi_image/logo4.jpg" alt="Logo">
-          </div>
-          <div fxFlex></div>
-        </div>

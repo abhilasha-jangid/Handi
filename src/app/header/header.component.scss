@@ -23,3 +23,12 @@ $background-moredark: rgb(170, 14, 136);
   .active {
       background: $background-moredark;
   }
+  .flex-spacer
+  {
+    flex: 1 1 auto;
+  }
+  .app-content {
+    padding: 20px;
+    height: calc(100% - 64px);
+    overflow: auto;
+  }
