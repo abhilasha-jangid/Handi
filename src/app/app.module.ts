@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import  'hammerjs';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     HomeComponent,
     ContectComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule, MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldModule,
@@ -47,7 +49,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,FormsModule,ReactiveFormsModule,MatSidenavModule
   ],
   providers: [ProductService,PromotionService,CorporateService,ArtistService],
-  entryComponents:[LoginComponent],
+  entryComponents:[LoginComponent,SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
