@@ -15,6 +15,7 @@ fxLayoutGap.xs="0">
       <img mat-card-image src={{product.image}} alt={{product.name}}>
       <mat-card-content>
         <p>{{product.description}}</p>
+        <p><span class="fa fa-inr"></span>{{product.price}}</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="goBack()">BACK</button>
@@ -22,6 +23,10 @@ fxLayoutGap.xs="0">
         <button mat-button>SHARE</button>
       </mat-card-actions>
     </mat-card>
+    <div [hidden]="product">
+      <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+    </div> 
+    
    </div>
   
 
@@ -36,4 +41,8 @@ fxLayoutGap.xs="0">
     </p>
   </mat-list-item>
   </div>
+  <div [hidden]="product">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div> 
+  
 </div>

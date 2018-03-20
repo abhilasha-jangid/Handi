@@ -18,6 +18,9 @@ fxLayoutGap="10px">
 </p>
 </mat-card-content>
 </mat-card>
+<div [hidden]="product">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div>
 
 <mat-card *ngIf="promotion" class="background-header" fxFlex >
 <mat-card-header>
@@ -32,6 +35,10 @@ fxLayoutGap="10px">
 </p>
 </mat-card-content>
 </mat-card>
+        <div [hidden]="promotion">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+      </div>
+
 <mat-card *ngIf="artist" class="background-header" fxFlex >
         <mat-card-header>
         <div mat-card-avatar></div>
@@ -45,5 +52,9 @@ fxLayoutGap="10px">
         </p>
         </mat-card-content>
         </mat-card>
+
+        <div [hidden]="artist">
+                <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+              </div>
 
 </div>

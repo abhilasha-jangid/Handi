@@ -18,6 +18,11 @@ fxLayoutGap="10px">
    </mat-grid-tile-footer>
  </mat-grid-tile>
 </mat-grid-list>
-</div>
 
+<div [hidden]="products">
+  <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+</div> 
+
+
+</div>
 </div>

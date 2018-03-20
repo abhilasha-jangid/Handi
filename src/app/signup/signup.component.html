@@ -40,6 +40,16 @@
       </mat-input-container>
 
 
+      <mat-input-container dividerColor="{{pincode.invalid && !pincode.pristine ? 'warn' : 'primary'}}">
+        <input matInput placeholder="Pincode" type="text" [(ngModel)]="user.pincode" name="pincode" #pincode="ngModel" required>
+        <mat-hint>
+            <span [hidden]="pincode.pristine">
+            <span [hidden]="!pincode.errors?.required">pincode is required</span>
+            </span>
+          </mat-hint>
+      </mat-input-container>
+
+
       <mat-input-container dividerColor="{{password.invalid && !password.pristine ? 'warn' : 'primary'}}">
         <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password"  #password="ngModel" required>
         <mat-hint>

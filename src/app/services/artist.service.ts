@@ -7,14 +7,23 @@ export class ArtistService {
 
   constructor() { }
 
-  getArtists() : Artist[]{
-    return ARTIST;
+  getArtists() : Promise<Artist[]>{
+    return new Promise(resolve=> {
+      // Simulate server latency with 2 second delay
+        setTimeout(() => resolve(ARTIST), 2000);
+    });
   }
-  getArtistId(id:number): Artist{
-    return ARTIST.filter((artist) => (artist.id === id))[0];
+  getArtistId(id:number): Promise<Artist>{
+    return new Promise(resolve=> {
+      // Simulate server latency with 2 second delay
+        setTimeout(() => resolve(ARTIST.filter((artist) => (artist.id === id))[0]), 2000);
+    });
   }
-  getArtistFeature(): Artist{
-    return ARTIST.filter((artist) =>(artist.featured))[0];
+  getArtistFeature(): Promise<Artist>{
+    return  new Promise(resolve=> {
+      // Simulate server latency with 2 second delay
+        setTimeout(() => resolve(ARTIST.filter((artist) => artist.featured)[0]), 2000);
+    });
   }
 
 }

@@ -22,10 +22,16 @@ export class HomeComponent implements OnInit {
               private artistService:ArtistService) { }
 
   ngOnInit() {
+
+    
    this.productService.getProductFeature()
    .then(product=>{this.product=product});
-    this.promotion = this.promotionService.getPromotionFeature();
-    this.artist = this.artistService.getArtistFeature();
+
+    this.promotionService.getPromotionFeature()
+    .then(promotion=>{this.promotion=promotion});
+
+    this.artistService.getArtistFeature()
+    .then(artist=>{this.artist=artist});
   }
 
 }
