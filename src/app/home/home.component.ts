@@ -25,13 +25,13 @@ export class HomeComponent implements OnInit {
 
     
    this.productService.getProductFeature()
-   .then(product=>{this.product=product});
+   .subscribe(product=>{this.product=product});
 
     this.promotionService.getPromotionFeature()
-    .then(promotion=>{this.promotion=promotion});
+    .subscribe(promotion=>{this.promotion=promotion});
 
     this.artistService.getArtistFeature()
-    .then(artist=>{this.artist=artist});
+    .subscribe(artist=>{this.artist=artist});
   }
 
 }

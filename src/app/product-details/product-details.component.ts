@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
     let id = +this.router.snapshot.params['id'];
     this.productService.getProductId(id)
-    .then(product=>{this.product = product});
+    .subscribe(product=>{this.product = product});
   }
 
   goBack():void {
