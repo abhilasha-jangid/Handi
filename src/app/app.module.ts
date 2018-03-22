@@ -30,6 +30,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
 
+import {ProcessHttpmsgService} from './services/process-httpmsg.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,7 @@ import { baseURL } from './shared/baseurl';
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule,FlexLayoutModule,BrowserAnimationsModule,
     AppRoutingModule,FormsModule,ReactiveFormsModule,MatSidenavModule,HttpModule
   ],
-  providers: [ProductService,PromotionService,CorporateService,ArtistService,
+  providers: [ProductService,PromotionService,CorporateService,ArtistService,ProcessHttpmsgService,
     {provide: 'BaseURL', useValue: baseURL}],
   entryComponents:[LoginComponent,SignupComponent],
   bootstrap: [AppComponent]
