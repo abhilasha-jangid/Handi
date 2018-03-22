@@ -27,6 +27,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 
+import { HttpModule } from '@angular/http';
+import { baseURL } from './shared/baseurl';
 
 @NgModule({
   declarations: [
@@ -46,9 +48,10 @@ import { SignupComponent } from './signup/signup.component';
     MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule,
     MatSlideToggleModule, MatToolbarModule, MatListModule, MatGridListModule,
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule,FlexLayoutModule,BrowserAnimationsModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,MatSidenavModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,MatSidenavModule,HttpModule
   ],
-  providers: [ProductService,PromotionService,CorporateService,ArtistService],
+  providers: [ProductService,PromotionService,CorporateService,ArtistService,
+    {provide: 'BaseURL', useValue: baseURL}],
   entryComponents:[LoginComponent,SignupComponent],
   bootstrap: [AppComponent]
 })

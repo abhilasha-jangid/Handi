@@ -1,9 +1,7 @@
 import { Product } from './product';
 
 export const PRODUCT: Product[] =
-[
-
-  {
+[{
     id : 0,
     name: 'Bhudha',
     image: '/assets/handi_image/bhudha.jpg',
@@ -151,5 +149,5 @@ export const PRODUCT: Product[] =
                                         date: "2018-02-13T17:57:28.556094Z"
                                       }
                                     ]
-  }
-];
+  }];
+ 

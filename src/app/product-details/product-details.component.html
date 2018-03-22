@@ -31,7 +31,14 @@ fxLayoutGap.xs="0">
    </div>
   
 
-  <div fxFlex="40" *ngIf="product">
+  <div fxFlex="40" *ngIf="product"
+  class="container"
+  fxLayout="column"
+  fxLayout.sm="column"
+  fxLayout.xs="column"
+  fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0">
   <h4>Comments</h4>
   <mat-list-item *ngFor="let comment of product.comments">
   <h3 mat-line> {{comment.comment}} </h3>
@@ -41,6 +48,26 @@ fxLayoutGap.xs="0">
     </span>
     </p>
   </mat-list-item>
+
+  <div fxFlex fxFlexOffset="20px" class="form-size">
+
+    <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()"  class="jumbotron" >
+      <p>
+        <mat-input-container class="half-width">
+          <input matInput formControlName="name" placeholder="Name" type="text" required>
+        </mat-input-container>
+      </p>
+      <p>
+        <mat-input-container class="half-width">
+          <input matInput formControlName="comment" placeholder="Comment" type="text" required>
+        </mat-input-container>
+      </p>
+     
+      <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    </form>
+  </div>
+
+
   </div>
   <div [hidden]="product">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
