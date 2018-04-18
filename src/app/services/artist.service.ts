@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Artist}  from '../shared/artist';
 import { ARTIST } from '../shared/artists';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';

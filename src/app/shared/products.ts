@@ -4,7 +4,7 @@ export const PRODUCT: Product[] =
 [{
     id : 0,
     name: 'Bhudha',
-    image: '/assets/handi_image/bhudha.jpg',
+    image: 'images/bhudha.jpg',
     price: '11500',
     featured: false,
     description: 'brss metalic murti of bhudha . it really a sign of peace. it make the people to love each other.recall them about the truth of life.it make a real knowlege to the existance of humen.',
@@ -42,7 +42,7 @@ export const PRODUCT: Product[] =
   {
     id:1,
     name: 'Manikanika ',
-    image: '/assets/handi_image/bamboo.jpg',
+    image: 'images/bamboo.jpg',
     price: '2345',
     featured: true,
     description: 'bamboo made faces .famous in kolkata.these faces are of mother durga maa .famous for truth,strength,power.she is the sign of power for the whole country .faces are made bambboo.tha t he famous bamboo and holy also.',
@@ -79,7 +79,7 @@ export const PRODUCT: Product[] =
   {
     id:2,
     name: 'Mona_lisa',
-    image: '/assets/handi_image/handicraft-bone-3.jpg',
+    image: 'images/handicraft-bone-3.jpg',
     price: '16000',
     featured: false,
     description: 'bone made old way of entrainment.it is made by bones . the famous in south india.it is an art to be the way to show the old days of india.it make proud to be an indian',
@@ -116,7 +116,7 @@ export const PRODUCT: Product[] =
   {
     id:3,
     name: 'Bastar_Chhattisgarh',
-    image: '/assets/handi_image/bell-metal-handicraft-bastar-chhattisgarh-india-asia-GD3N9D.jpg',
+    image: 'images/bell-metal-handicraft-bastar-chhattisgarh-india-asia-GD3N9D.jpg',
     price: '23000',
     featured: false,
     description: 'ball metal made handicraft bastar chhattisgarh.these are made by the brss metal which is famous for the old way thing to show the horror face for the peace.',

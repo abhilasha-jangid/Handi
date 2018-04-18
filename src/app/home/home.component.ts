@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import { Product } from '../shared/product';
 import { ProductService } from '../services/product.service';
 import { Promotion } from '../shared/promotion';
@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor( private productService:ProductService,
                private promotionService:PromotionService,
-              private artistService:ArtistService) { }
+              private artistService:ArtistService,
+              @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
 

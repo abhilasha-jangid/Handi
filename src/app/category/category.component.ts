@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 
 import { Product } from '../shared/product';
 import { ProductService } from '../services/product.service';
@@ -15,7 +15,8 @@ export class CategoryComponent implements OnInit {
   products : Product[];
   selectProduct : Product;
 
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService,
+    @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
     this.productService.getProducts()

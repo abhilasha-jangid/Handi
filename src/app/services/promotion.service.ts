@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Promotion } from '../shared/promotion';
 import { PROMOTION } from '../shared/promotions';
 

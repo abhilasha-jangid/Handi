@@ -12,7 +12,7 @@ fxLayoutGap="10px">
  <h3>{{product.name | uppercase}}</h3>
 </mat-card-title>
 </mat-card-header>
-<img mat-card-image src={{product.image}} alt={{product.name}}>
+<img mat-card-image src="{{BaseURL + product.image}}" alt={{product.name}}>
 <mat-card-content>
 <p>{{product.description}}
 </p>
@@ -29,7 +29,7 @@ fxLayoutGap="10px">
  <h3>{{promotion.name | uppercase}}</h3>
 </mat-card-title>
 </mat-card-header>
-<img mat-card-image src={{promotion.image}} alt={{promotion.name}}>
+<img mat-card-image src="{{BaseURL + promotion.image}}" alt={{promotion.name}}>
 <mat-card-content>
 <p>{{promotion.description}}
 </p>
@@ -46,7 +46,7 @@ fxLayoutGap="10px">
          <h3>{{artist.name | uppercase}}</h3>
         </mat-card-title>
         </mat-card-header>
-        <img mat-card-image src={{artist.image}} alt={{artist.name}}>
+        <img mat-card-image src="{{BaseURL + artist.image}}" alt={{artist.name}}>
         <mat-card-content>
         <p>{{artist.description}}
         </p>

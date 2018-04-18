@@ -54,7 +54,7 @@ fxLayoutGap="10px">
       <mat-list-item *ngFor="let corporate of corporates">
         <h5 mat-line class="jumbotron">{{corporate.name}}</h5>
         <h6 mat-line class="jumbotron">{{corporate.post}}</h6>
-        <img mat-list-avatar src="{{corporate.image}}" alt="{{corporate.name}}">
+        <img mat-list-avatar src="{{BaseURL + corporate.image}}" alt="{{corporate.name}}">
         <p mat-line class="jumbotron">
           <span> {{corporate.potential}} </span>
         </p>

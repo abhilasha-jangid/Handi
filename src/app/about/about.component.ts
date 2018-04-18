@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import {Corporate } from '../shared/corporate';
 import { CorporateService } from '../services/corporate.service'
 
@@ -11,7 +11,8 @@ export class AboutComponent implements OnInit {
 
   corporates: Corporate[];
   corporate: Corporate;
-  constructor(private corporateService:CorporateService) { }
+  constructor(private corporateService:CorporateService,
+    @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
 

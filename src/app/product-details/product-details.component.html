@@ -12,7 +12,7 @@ fxLayoutGap.xs="0">
         <h3>{{product.name}}</h3>
       </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src={{product.image}} alt={{product.name}}>
+      <img mat-card-image src="{{BaseURL + product.image}}" alt={{product.name}}>
       <mat-card-content>
         <p>{{product.description}}</p>
         <p><span class="fa fa-inr"></span>{{product.price}}</p>
@@ -51,15 +51,26 @@ fxLayoutGap.xs="0">
 
   <div fxFlex fxFlexOffset="20px" class="form-size">
 
+      <p>{{ commentForm.value | json }} {{ commentForm.status | json }}</p>
+
     <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()"  class="jumbotron" >
       <p>
-        <mat-input-container class="half-width">
+        <mat-input-container class="half-width" dividerColor="{{(formErrors.name) ? 'warn' : 'primary'}}">
           <input matInput formControlName="name" placeholder="Name" type="text" required>
+          <mat-hint>
+              <span [hidden]="!(formErrors.name)">
+                {{formErrors.name}}</span>
+            </mat-hint>
         </mat-input-container>
       </p>
+      <mat-slider color="primary" value="50" thumbLabel aria-label="Primary color slider" min="1" max="5" step="1.0" value="1.5"></mat-slider>
       <p>
-        <mat-input-container class="half-width">
+        <mat-input-container class="half-width" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
           <input matInput formControlName="comment" placeholder="Comment" type="text" required>
+          <mat-hint>
+              <span [hidden]="!(formErrors.comment)">
+                {{formErrors.comment}}</span>
+            </mat-hint>
         </mat-input-container>
       </p>
      
