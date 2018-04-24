@@ -11,11 +11,11 @@
   
     <mat-dialog-content>
       <p>
-        <mat-input-container dividerColor="{{username.invalid && !username.pristine ? 'warn' : 'primary'}}">
-          <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username" #username="ngModel" required>
+        <mat-input-container dividerColor="{{phone.invalid && !phone.pristine ? 'warn' : 'primary'}}">
+          <input matInput placeholder="Phone" type="text" [(ngModel)]="user.phone" name="phone" #phone="ngModel" required>
           <mat-hint>
-              <span [hidden]="username.pristine">
-              <span [hidden]="!username.errors?.required">username is required</span>
+              <span [hidden]="phone.pristine">
+              <span [hidden]="!phone.errors?.required">phone is required</span>
               </span>
             </mat-hint>
         </mat-input-container>

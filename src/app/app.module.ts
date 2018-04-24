@@ -31,6 +31,15 @@ import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
 
 import {ProcessHttpmsgService} from './services/process-httpmsg.service'
+
+
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/auth.interceptor';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,9 +58,9 @@ import {ProcessHttpmsgService} from './services/process-httpmsg.service'
     MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule,
     MatSlideToggleModule, MatToolbarModule, MatListModule, MatGridListModule,
     MatCardModule, MatIconModule, MatProgressSpinnerModule, MatDialogModule,FlexLayoutModule,BrowserAnimationsModule,
-    AppRoutingModule,FormsModule,ReactiveFormsModule,MatSidenavModule,HttpModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule,MatSidenavModule,HttpModule, RestangularModule.forRoot(RestangularConfigFactory)
   ],
-  providers: [ProductService,PromotionService,CorporateService,ArtistService,ProcessHttpmsgService,
+  providers: [ProductService,PromotionService,CorporateService,ArtistService,ProcessHttpmsgService,UserService,AuthService,AuthInterceptor,
     {provide: 'BaseURL', useValue: baseURL}],
   entryComponents:[LoginComponent,SignupComponent],
   bootstrap: [AppComponent]

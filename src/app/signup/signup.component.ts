@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material';
+import { UserService } from '../services/user.service'
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -9,9 +11,12 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 })
 export class SignupComponent implements OnInit {
 
-  constructor( public dialogRef:MatDialogRef<SignupComponent>) { }
+  constructor( public dialogRef:MatDialogRef<SignupComponent>,
+    private userService : UserService,
+    private authService: AuthService) { }
 
-  user = {remember:false};
+  user = {username:"" , remember:false,phone:"", adress:"",pincode:"",password:""};
+  errMess: string;
 
   ngOnInit() {
   }
@@ -19,7 +24,20 @@ export class SignupComponent implements OnInit {
   onSubmit()
   {
     console.log("User: ",this.user);
-    this.dialogRef.close();
+    this.userService.signUp(this.user)
+    .subscribe(res => {
+     
+      if (res.success) {
+        this.dialogRef.close(res.success);
+        alert(res.status);         
+      }
+      else {
+        alert(res.status)
+      }
+    },
+    error => {
+      alert(error)
+    })
   }
 
 }

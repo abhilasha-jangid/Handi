@@ -9,25 +9,33 @@ import 'rxjs/add/operator/catch';
 import { Http, Response } from '@angular/http';
 import { baseURL } from '../shared/baseurl';
 import { ProcessHttpmsgService } from './process-httpmsg.service';
+import 'rxjs/add/operator/map';
+import { RestangularModule, Restangular } from 'ngx-restangular';
 
 
 @Injectable()
 export class ProductService {
 
   constructor(private http: Http,
-    private processHTTPMsgService: ProcessHttpmsgService
+    private processHTTPMsgService: ProcessHttpmsgService,
+    private restangular: Restangular
   ) { }
-
 
   
   getProducts() : Observable<Product[]>{
-    return Observable.of(PRODUCT).delay(2000);
+    return this.http.get(baseURL + 'products').map(res => {return this.processHTTPMsgService.extractData(res)});
   }
+
+
   getProductId(id:number): Observable<Product>{
-      return Observable.of(PRODUCT.filter((product) => (product.id === id))[0]).delay(2000);
+      return this.http.get(baseURL + 'products/' + id)
+      .map(res => {return this.processHTTPMsgService.extractData(res)});
   }
+
+
   getProductFeature(): Observable<Product>{
-    return  Observable.of(PRODUCT.filter((product) => product.featured)[0]).delay(2000);
+    return this.http.get(baseURL + 'product?featured=true')
+    .map(res=>{ return this.processHTTPMsgService.extractData(res)[0];}); 
   }
 
   
