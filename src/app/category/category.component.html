@@ -11,15 +11,15 @@ fxLayoutGap="10px">
 
 <div fxFlex >
 <mat-grid-list cols="2" rowHeight="200px">
- <mat-grid-tile *ngFor="let product of products" [routerLink]="['/productDetail',product.id]">
-   <img height="200px" src="{{BaseURL + product.image}}" alt={{product.name}}>
+ <mat-grid-tile *ngFor="let category of categories" [routerLink] ="['/category-products',category._id]" >
+   <img height="200px" src="{{BaseURL + category.product[0].image_url}}" alt={{category.name}}>
    <mat-grid-tile-footer>
-     <h1 mat-line>{{product.name | uppercase}}</h1>
+     <h1 mat-line>{{category.name | uppercase}}</h1>
    </mat-grid-tile-footer>
  </mat-grid-tile>
 </mat-grid-list>
 
-<div [hidden]="products">
+<div [hidden]="categories">
   <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
 </div> 
 

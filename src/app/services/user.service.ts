@@ -30,6 +30,15 @@ export class UserService {
       .catch(error => { return this.processHTTPMsgService.handleError(error); });
   }
 
+
+  checkJwt(): Observable<any> {
+    return this.http.get<AuthResponse>(baseURL + 'user/jwt')
+      .map(res => {
+      return {'success': res.success, 'status' : res.status};
+    })
+      .catch(error => { return this.processHTTPMsgService.handleError(error); });
+  }
+
   
 
 }

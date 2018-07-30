@@ -5,6 +5,7 @@ import { Promotion } from '../shared/promotion';
 import { PromotionService } from '../services/promotion.service';
 import { Artist } from '../shared/artist';
 import { ArtistService } from '../services/artist.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -20,10 +21,20 @@ export class HomeComponent implements OnInit {
   constructor( private productService:ProductService,
                private promotionService:PromotionService,
               private artistService:ArtistService,
+              private userService:UserService,
               @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
-
+   
+    this.userService.checkJwt()
+    .subscribe(res => {
+      if (res.success) {
+          alert(res.status)    
+      }
+    },
+    error => {
+      alert(error)
+    })   
     
    this.productService.getProductFeature()
    .subscribe(product=>{this.product=product});

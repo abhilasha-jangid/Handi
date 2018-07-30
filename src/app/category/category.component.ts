@@ -14,18 +14,39 @@ export class CategoryComponent implements OnInit {
 
   products : Product[];
   selectProduct : Product;
+  categories : any;
+  errMess : string;
 
   constructor(private productService:ProductService,
     @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
-    this.productService.getProducts()
-    .subscribe(products => {this.products = products});
-  }
+  /**  this.productService.getCategoryType()
+    .subscribe(categories => {this.categories = categories});**/
 
-  onSelect( product:Product)
+    this.productService.getCategoryType()
+    .subscribe(res => {
+      if (res.success) {  
+        this.categories = res.data;
+        console.log("cate gories details -->>",this.categories);         
+      }
+      else {
+        console.log(res);
+      }
+    },
+    error => {
+      console.log(error);
+      this.errMess = error
+      alert(error); 
+    })
+}
+
+
+
+
+/**  onSelect( product:Product)
   {
     this.selectProduct = product;
-  }
+  }**/
 
 }

@@ -25,27 +25,28 @@ interface JWTResponse {
 @Injectable()
 export class AuthService {
 
- tokenKey: string = 'JWT';
- isAuthenticated: Boolean = false;
- username: Subject<string> = new Subject<string>();
- authToken: string = undefined;
+  tokenKey: string = 'JWT';
+  isAuthenticated: Boolean = false;
+  username: Subject<string> = new Subject<string>();
+  authToken: string = undefined;
+  name: string;
 
   constructor(private http: HttpClient,
-    private ProcessHttpmsgService: ProcessHttpmsgService) { 
+    private ProcessHttpmsgService: ProcessHttpmsgService) {
   }
-  
+
   checkJWTtoken() {
     this.http.get<JWTResponse>(baseURL + 'users/checkJWTtoken')
-    .subscribe(res => {
-      console.log("JWT Token Valid: ", res);
-      this.sendUsername(res.user.username);
-    },
-    err => {
-      console.log("JWT Token invalid: ", err);
-      this.destroyUserCredentials();
-    })
+      .subscribe(res => {
+        console.log("JWT Token Valid: ", res);
+        this.sendUsername(res.user.username);
+      },
+      err => {
+        console.log("JWT Token invalid: ", err);
+        this.destroyUserCredentials();
+      })
   }
- 
+
   sendUsername(name: string) {
     this.username.next(name);
   }
@@ -57,23 +58,26 @@ export class AuthService {
   loadUserCredentials() {
     var credentials = JSON.parse(localStorage.getItem(this.tokenKey));
     console.log("loadUserCredentials ", credentials);
-    if (credentials && credentials.username != undefined) {
+    if (credentials && credentials.name != undefined) {
       this.useCredentials(credentials);
+      /*
       if (this.authToken)
         this.checkJWTtoken();
+        */
     }
   }
 
   storeUserCredentials(credentials: any) {
-    console.log("storeUserCredentials ", credentials);    
+    console.log("storeUserCredentials heyyy....", credentials);
     localStorage.setItem(this.tokenKey, JSON.stringify(credentials));
     this.useCredentials(credentials);
   }
 
   useCredentials(credentials: any) {
     this.isAuthenticated = true;
-    this.sendUsername(credentials.username);
+    this.sendUsername(credentials.name);
     this.authToken = credentials.token;
+    this.name = credentials.name
   }
 
   destroyUserCredentials() {
@@ -83,18 +87,34 @@ export class AuthService {
     localStorage.removeItem(this.tokenKey);
   }
 
-  signUp() {
-
-  }
 
   logIn(user: any): Observable<any> {
-    return this.http.post<AuthResponse>(baseURL + 'user/login', 
-      {"phone": user.phone, "password": user.password})
+    return this.http.post<AuthResponse>(baseURL + 'user/login',
+      { "phone": user.phone, "password": user.password })
       .map(res => {
-          this.storeUserCredentials({ token: res.token});
-          return {'success': true, 'status' : res.status };
+        this.storeUserCredentials({ token: res.token, name: res.status });
+        return { 'success': true, 'status': res.status, 'username': user.name };
       })
-        .catch(error => { return this.ProcessHttpmsgService.handleError(error); });
+      .catch(error => { return this.ProcessHttpmsgService.handleError(error); });
+  }
+
+
+  signUp(user: any): Observable<any> {
+    return this.http.post<AuthResponse>(baseURL + 'user/signUp',
+      { "phone": user.phone, "password": user.password, "pincode": user.pincode, "name": user.username, "address": user.adress })
+      .map(res => {
+        return { 'success': res.success, 'status': res.status, 'username': user.name };
+      })
+      .catch(error => { return this.ProcessHttpmsgService.handleError(error); });
+  }
+
+
+  checkJwt(): Observable<any> {
+    return this.http.get<AuthResponse>(baseURL + 'user/jwt')
+      .map(res => {
+        return { 'success': res.success, 'status': res.status };
+      })
+      .catch(error => { return this.ProcessHttpmsgService.handleError(error); });
   }
 
   logOut() {
@@ -111,5 +131,9 @@ export class AuthService {
 
   getToken(): string {
     return this.authToken;
+  }
+
+  getName(): string {
+    return this.name;
   }
 }

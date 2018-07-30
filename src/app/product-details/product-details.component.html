@@ -1,21 +1,17 @@
-<div class="container"
-fxLayout="row"
-fxLayout.sm="column"
-fxLayout.xs="column"
-fxLayoutAlign.gt-md="space-around center"
-fxLayoutGap="10px"
-fxLayoutGap.xs="0">
-    <div fxFlex="40" >
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div fxFlex="40">
     <mat-card *ngIf="product" class="background-header">
       <mat-card-header>
-      <mat-card-title>
-        <h3>{{product.name}}</h3>
-      </mat-card-title>
+        <mat-card-title>
+          <h3>{{product.name}}</h3>
+        </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src="{{BaseURL + product.image}}" alt={{product.name}}>
+      <img mat-card-image src="{{BaseURL + product.image_url}}" alt={{product.name}}>
       <mat-card-content>
-        <p>{{product.description}}</p>
-        <p><span class="fa fa-inr"></span>{{product.price}}</p>
+        <p>{{product.discription}}</p>
+        <p>
+          <span class="fa fa-inr"></span>{{product.price}}</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="goBack()">BACK</button>
@@ -25,63 +21,50 @@ fxLayoutGap.xs="0">
       </mat-card-actions>
     </mat-card>
     <div [hidden]="product">
-      <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-    </div> 
-    
-   </div>
-  
+      <mat-spinner></mat-spinner>
+      <h4>Loading . . . Please Wait</h4>
+    </div>
 
-  <div fxFlex="40" *ngIf="product"
-  class="container"
-  fxLayout="column"
-  fxLayout.sm="column"
-  fxLayout.xs="column"
-  fxLayoutAlign.gt-md="space-around center"
-  fxLayoutGap="10px"
-  fxLayoutGap.xs="0">
-  <h4>Comments</h4>
-  <mat-list-item *ngFor="let comment of product.comments">
-  <h3 mat-line> {{comment.comment}} </h3>
-  <p mat-line>{{comment.rating}} Stars</p>
-  <p mat-line>
-    <span>--{{comment.customer_name}} {{comment.date | date}}
-    </span>
-    </p>
-  </mat-list-item>
+  </div>
 
-  <div fxFlex fxFlexOffset="20px" class="form-size">
+
+  <div fxFlex="40" *ngIf="product" class="container" fxLayout="column" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px" fxLayoutGap.xs="0">
+    <h4>Comments</h4>
+    <mat-list-item *ngFor="let comment of product.comment">
+      <h3 mat-line> {{comment.comment}} </h3>
+      <p mat-line>{{comment.rating}} Stars</p>
+      <p mat-line>
+        <span>--{{comment.user.name}} {{comment.createdAt | date}}
+        </span>
+      </p>
+    </mat-list-item>
+
+    <div fxFlex fxFlexOffset="20px" class="form-size">
 
       <p>{{ commentForm.value | json }} {{ commentForm.status | json }}</p>
 
-    <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()"  class="jumbotron" >
-      <p>
-        <mat-input-container class="half-width" dividerColor="{{(formErrors.name) ? 'warn' : 'primary'}}">
-          <input matInput formControlName="name" placeholder="Name" type="text" required>
-          <mat-hint>
-              <span [hidden]="!(formErrors.name)">
-                {{formErrors.name}}</span>
-            </mat-hint>
-        </mat-input-container>
-      </p>
-      <mat-slider color="primary" value="50" thumbLabel aria-label="Primary color slider" min="1" max="5" step="1.0" value="1.5"></mat-slider>
-      <p>
-        <mat-input-container class="half-width" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
-          <input matInput formControlName="comment" placeholder="Comment" type="text" required>
-          <mat-hint>
+      <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="jumbotron">
+        <mat-slider formControlName="rating" color="primary" value="50" thumbLabel aria-label="Primary color slider" min="1" max="5" step="1.0" value="1.5"></mat-slider>
+        <p>
+          <mat-input-container class="half-width" dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+            <input matInput formControlName="comment" placeholder="Comment" type="text" required>
+            <mat-hint>
               <span [hidden]="!(formErrors.comment)">
                 {{formErrors.comment}}</span>
             </mat-hint>
-        </mat-input-container>
-      </p>
-     
-      <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
-    </form>
-  </div>
+          </mat-input-container>
+        </p>
+
+        <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+      </form>
+    </div>
 
 
   </div>
   <div [hidden]="product">
-    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-  </div> 
-  
+    <mat-spinner></mat-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
+
 </div>

@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit()
   {
-    console.log("User: ",this.user);
-    console.log("User: ", this.user);
     this.authService.logIn(this.user)
       .subscribe(res => {
         if (res.success) {

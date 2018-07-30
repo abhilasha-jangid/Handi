@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material';
-import { UserService } from '../services/user.service'
 import { AuthService } from '../services/auth.service';
 
 
@@ -12,7 +11,6 @@ import { AuthService } from '../services/auth.service';
 export class SignupComponent implements OnInit {
 
   constructor( public dialogRef:MatDialogRef<SignupComponent>,
-    private userService : UserService,
     private authService: AuthService) { }
 
   user = {username:"" , remember:false,phone:"", adress:"",pincode:"",password:""};
@@ -24,7 +22,7 @@ export class SignupComponent implements OnInit {
   onSubmit()
   {
     console.log("User: ",this.user);
-    this.userService.signUp(this.user)
+    this.authService.signUp(this.user)
     .subscribe(res => {
      
       if (res.success) {
