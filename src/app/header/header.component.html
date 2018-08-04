@@ -10,7 +10,7 @@
     <a  *ngIf="!username" mat-button (click)="openSignupForm()"><span class="fa fa-user-plus fa-lg"></span> Signup</a>
     
     <a *ngIf="username">{{username}}</a>
-    <a *ngIf="username" mat-button (click)="cart()"><span class="fa fa-shopping-cart" aria-hidden="true"></span></a> 
+    <a *ngIf="username" mat-button (click)="cart()" routerLink="/cart"><span class="fa fa-shopping-cart" aria-hidden="true"></span></a> 
     <a *ngIf="username" mat-button (click)="logOut()"><span class="fa fa-sign-out fa-lg"></span> Logout</a> 
   </mat-toolbar>
 

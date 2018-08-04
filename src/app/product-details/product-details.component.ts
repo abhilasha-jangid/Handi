@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 
 import { Product } from '../shared/product';
 import { ProductService } from '../services/product.service';
+import { CartService } from '../services/cart.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -36,6 +37,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
   constructor(private productService: ProductService,
+    private cartService: CartService,
     private router: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder,
@@ -52,6 +54,20 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(product => {
         this.product = product['data']
       });
+  }
+
+  addToCart(){
+    let id = this.router.snapshot.params['id'];
+    this.cartService.addToCart(id)
+      .subscribe(res => {
+        if (res.success) {
+          alert(res.data);
+        }
+      },
+      error => {
+        console.log(error);
+        alert('Please LogIn First');
+      })
   }
 
   createForm() {

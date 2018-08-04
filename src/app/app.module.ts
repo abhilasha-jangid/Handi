@@ -13,6 +13,7 @@ import { ProductService } from './services/product.service';
 import { PromotionService } from './services/promotion.service';
 import { CorporateService } from './services/corporate.service';
 import { ArtistService } from './services/artist.service';
+import { CartService } from './services/cart.service';
 
 import { AppComponent } from './app.component';
 import { CategoryComponent } from './category/category.component';
@@ -45,6 +46,7 @@ import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interc
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryProductsComponent } from './category-products/category-products.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -59,7 +61,8 @@ import { CategoryProductsComponent } from './category-products/category-products
     ContectComponent,
     LoginComponent,
     SignupComponent,
-    CategoryProductsComponent
+    CategoryProductsComponent,
+    CartComponent
   ],
   imports: [
     HttpClientModule,
@@ -70,7 +73,7 @@ import { CategoryProductsComponent } from './category-products/category-products
     AppRoutingModule, FormsModule, ReactiveFormsModule, MatSidenavModule, HttpModule, RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [ProductService, PromotionService, CorporateService,
-    ArtistService, ProcessHttpmsgService, UserService,
+    ArtistService, ProcessHttpmsgService, UserService,CartService,
     AuthService, HttpClientModule,
     {
       provide: HTTP_INTERCEPTORS,

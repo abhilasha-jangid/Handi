@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-xl-8 col-lg-12 col-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Shopping Cart</h4>
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive-sm ">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>
+                <img height="40" width="50" src="{{BaseURL + product.image}}" alt={{product.name}}/>
+              </td>
+              <td>{{product.name}}</td>
+              <td>{{product.quantity}}</td>
+              <td>${{product.price}}</td>
+              <td>
+                <a class="danger" data-original-title="" title="">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

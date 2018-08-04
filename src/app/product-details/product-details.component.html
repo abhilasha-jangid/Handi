@@ -17,7 +17,7 @@
         <button mat-button (click)="goBack()">BACK</button>
         <button mat-button>LIKE</button>
         <button mat-button>SHARE</button>
-        <button mat-button>ADD TO CART</button>
+        <button mat-button (click)="addToCart()">ADD TO CART</button>
       </mat-card-actions>
     </mat-card>
     <div [hidden]="product">
