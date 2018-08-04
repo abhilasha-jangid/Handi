@@ -47,6 +47,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryProductsComponent } from './category-products/category-products.component';
 import { CartComponent } from './cart/cart.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     SignupComponent,
     CategoryProductsComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     HttpClientModule,

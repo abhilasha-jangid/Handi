@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
    
-    this.userService.checkJwt()
+   /* this.userService.checkJwt()
     .subscribe(res => {
       if (res.success) {
           alert(res.status)    
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     },
     error => {
       alert(error)
-    })   
+    })*/   
     
    this.productService.getProductFeature()
    .subscribe(product=>{this.product=product});
