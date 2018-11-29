@@ -9,32 +9,31 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor( public dialogRef:MatDialogRef<LoginComponent>
-  , private authService: AuthService) { }
+  constructor(public dialogRef: MatDialogRef<LoginComponent>
+    , private authService: AuthService) { }
 
-  user = {phone: '', password: '',remember:false};
+  user = { phone: '', password: '', remember: false };
   errMess: string;
 
   ngOnInit() {
   }
 
-  onSubmit()
-  {
+  onSubmit() {
     this.authService.logIn(this.user)
       .subscribe(res => {
         if (res.success) {
-          this.dialogRef.close(res.success);  
-          alert(res.status);         
+          this.dialogRef.close(res.success);
+          alert(res.status);
         }
         else {
           console.log(res);
-          alert(res.status); 
+          alert(res.status);
         }
       },
       error => {
         console.log(error);
         this.errMess = error
-        alert(error); 
+        alert(error);
       })
   }
 }

@@ -36,4 +36,32 @@ export class CartService {
       .catch(error => { return this.processHTTPMsgService.handleError(error); });
   }
 
+  deleteFromCart(id: string,amount: number): Observable<any> {
+    return this.http.post<any>(baseURL + 'cart/removeProductFromCart', {
+      "product_id": id,"amount" : amount
+    })
+      .map(res => {
+        return { 'success': res.success, 'data': res.data };
+      })
+      .catch(error => { return this.processHTTPMsgService.handleError(error); });
+  }
+
+  Order(order: any): Observable<any> {
+    return this.http.post<any>(baseURL + 'order/orderd', {
+      "address.address": order.address,
+      "address.pincode": order.pincode,
+      "address.state": order.state,
+      "address.city": order.city,
+      "address.landmark": order.landmark,
+      "personal.firstname": order.firstname,
+      "personal.lastname": order.lastname,
+      "personal.mobile": order.mobile,
+      "personal.email": order.email
+    })
+      .map(res => {
+        return { 'success': res.success, 'data': res.data };
+      })
+      .catch(error => { return this.processHTTPMsgService.handleError(error); });
+  }
+
 }

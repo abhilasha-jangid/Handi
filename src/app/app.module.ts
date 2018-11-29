@@ -75,7 +75,7 @@ import { OrderComponent } from './order/order.component';
     AppRoutingModule, FormsModule, ReactiveFormsModule, MatSidenavModule, HttpModule, RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [ProductService, PromotionService, CorporateService,
-    ArtistService, ProcessHttpmsgService, UserService,CartService,
+    ArtistService, ProcessHttpmsgService, UserService, CartService,
     AuthService, HttpClientModule,
     {
       provide: HTTP_INTERCEPTORS,

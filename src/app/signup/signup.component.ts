@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
   constructor( public dialogRef:MatDialogRef<SignupComponent>,
     private authService: AuthService) { }
 
-  user = {username:"" , remember:false,phone:"", adress:"",pincode:"",password:""};
+  user = {username:"" , remember:false,phone:"",password:""};
   errMess: string;
 
   ngOnInit() {

@@ -42,8 +42,6 @@
 
     <div fxFlex fxFlexOffset="20px" class="form-size">
 
-      <p>{{ commentForm.value | json }} {{ commentForm.status | json }}</p>
-
       <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="jumbotron">
         <mat-slider formControlName="rating" color="primary" value="50" thumbLabel aria-label="Primary color slider" min="1" max="5" step="1.0" value="1.5"></mat-slider>
         <p>

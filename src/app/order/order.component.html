@@ -3,13 +3,13 @@
     <div class="container">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title" id="basic-layout-form">Project Info</h4>
-          <p class="mb-0">This is the most basic and default form having form sections. To add form section use
-            <code>.form-section</code> class with any heading tags. This form has the buttons on the bottom left corner which is the default position.</p>
+          <h4 class="card-title" id="basic-layout-form">Order Info</h4>
+          <p class="mb-0">please fill details of order.we have made the payment mode only cash on delivery.
+                you get an conformation E-mail from our side on successfull order.</p>
         </div>
         <div class="card-body">
           <div class="px-3">
-            <form class="form">
+            <form novalidate [formGroup]="orderForm" (ngSubmit)="onSubmit()">
               <div class="form-body">
                 <h4 class="form-section">
                   <i class="ft-user"></i> Personal Info</h4>
@@ -17,13 +17,21 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput1">First Name</label>
-                      <input type="text" id="projectinput1" class="form-control" name="fname">
+                      <input type="text" class="form-control" formControlName="firstname">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.firstname)">
+                          {{formErrors.firstname}}</span>
+                      </small>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput2">Last Name</label>
-                      <input type="text" id="projectinput2" class="form-control" name="lname">
+                      <input type="text" formControlName="lastname" class="form-control">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.lastname)">
+                          {{formErrors.lastname}}</span>
+                      </small>
                     </div>
                   </div>
                 </div>
@@ -31,13 +39,21 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput3">E-mail</label>
-                      <input type="text" id="projectinput3" class="form-control" name="email">
+                      <input type="text" formControlName="email" class="form-control" name="email">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.email)">
+                          {{formErrors.email}}</span>
+                      </small>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput4">Contact Number</label>
-                      <input type="text" id="projectinput4" class="form-control" name="phone">
+                      <input type="text" formControlName="mobile" class="form-control" name="phone">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.mobile)">
+                          {{formErrors.mobile}}</span>
+                      </small>
                     </div>
                   </div>
                 </div>
@@ -47,20 +63,32 @@
 
                 <div class="form-group">
                   <label for="companyName">address</label>
-                  <input type="text" id="companyName" class="form-control" name="company">
+                  <input type="text" formControlName="address" class="form-control" name="company">
+                  <small>
+                    <span style="color:red" [hidden]="!(formErrors.address)">
+                      {{formErrors.address}}</span>
+                  </small>
                 </div>
 
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput1">City</label>
-                      <input type="text" id="projectinput1" class="form-control" name="fname">
+                      <input type="text" formControlName="city" class="form-control" name="fname">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.city)">
+                          {{formErrors.city}}</span>
+                      </small>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput2">State</label>
-                      <input type="text" id="projectinput2" class="form-control" name="lname">
+                      <input type="text" formControlName="state" class="form-control" name="lname">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.state)">
+                          {{formErrors.state}}</span>
+                      </small>
                     </div>
                   </div>
                 </div>
@@ -68,20 +96,28 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput3">Land-mark</label>
-                      <input type="text" id="projectinput3" class="form-control" name="email">
+                      <input type="text" formControlName="landmark" class="form-control" name="email">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.landmark)">
+                          {{formErrors.landmark}}</span>
+                      </small>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="projectinput4">Pincode</label>
-                      <input type="text" id="projectinput4" class="form-control" name="phone">
+                      <input type="text" formControlName="pincode" class="form-control" name="phone">
+                      <small>
+                        <span style="color:red" [hidden]="!(formErrors.pincode)">
+                          {{formErrors.pincode}}</span>
+                      </small>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="form-actions">
-                <button type="button" class="btn btn-raised btn-raised btn-primary">
+                <button type="submit" class="btn btn-raised btn-raised btn-primary" [disabled]="orderForm.invalid">
                   <i class="fa fa-check-square-o"></i> Order
                 </button>
               </div>

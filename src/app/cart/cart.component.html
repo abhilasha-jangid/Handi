@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="products?.length > 0">
   <div class="col-xl-8 col-lg-12 col-12">
     <div class="card">
       <div class="card-header">
@@ -24,9 +24,9 @@
               <td>{{product.quantity}}</td>
               <td>${{product.price}}</td>
               <td>
-                <a class="danger" data-original-title="" title="">
+                <button (click)="deleteCart(product.id,product.original)" class="danger" data-original-title="" title="">
                   <i class="fa fa-trash"></i>
-                </a>
+                </button>
               </td>
             </tr>
 
@@ -38,4 +38,8 @@
       </div>
     </div>
   </div>
+</div>
+<div class="container" *ngIf="products?.length < 1">
+  <img src="assets/handi_image/empty-cart.jpg" alt={{product.name}}/>
+
 </div>
